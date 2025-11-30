@@ -1,0 +1,54 @@
+---
+layout: app.njk
+title: ElevenLabs Studio Projects
+---
+<section class="py-12">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <header class="space-y-2 text-center">
+      <p class="text-sm font-semibold text-indigo-600 uppercase tracking-wide">ElevenLabs Studio</p>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Manage your projects</h1>
+      <p class="text-gray-600 max-w-2xl mx-auto">Use your ElevenLabs API key to list your existing Studio projects and create new ones without leaving the browser.</p>
+    </header>
+
+    <div class="bg-white shadow rounded-lg divide-y divide-gray-200">
+      <div class="p-6 space-y-4">
+        <label class="block text-sm font-medium text-gray-700" for="api-key-input">ElevenLabs API key</label>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <input id="api-key-input" type="password" placeholder="Paste your API key" class="flex-1 rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 py-2 px-3" aria-describedby="api-key-help" />
+          <button id="connect-button" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Connect</button>
+        </div>
+        <p id="api-key-help" class="text-xs text-gray-500">Your key is used only in this session to make requests directly to the ElevenLabs Studio API.</p>
+        <p id="status-message" class="text-sm text-gray-700"></p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 divide-y lg:divide-y-0 lg:divide-x divide-gray-200">
+        <div class="p-6 space-y-4">
+          <div class="flex items-center justify-between">
+            <h2 class="text-lg font-semibold text-gray-900">Existing projects</h2>
+            <button id="refresh-projects" class="text-sm font-medium text-indigo-600 hover:text-indigo-700">Refresh</button>
+          </div>
+          <div id="projects-list" class="space-y-3" aria-live="polite">
+            <p class="text-sm text-gray-500">Connect with an API key to load your projects.</p>
+          </div>
+        </div>
+
+        <div class="p-6 space-y-4">
+          <h2 class="text-lg font-semibold text-gray-900">Create a new project</h2>
+          <form id="create-project-form" class="space-y-3">
+            <div>
+              <label class="block text-sm font-medium text-gray-700" for="project-name">Project name</label>
+              <input id="project-name" name="project-name" type="text" required placeholder="Marketing video" class="mt-1 block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 py-2 px-3" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700" for="project-description">Description <span class="text-gray-400">(optional)</span></label>
+              <textarea id="project-description" name="project-description" rows="3" placeholder="Short description to keep things organized" class="mt-1 block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 py-2 px-3"></textarea>
+            </div>
+            <button type="submit" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">Create project</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="module" src="/js/studioApp.js"></script>
